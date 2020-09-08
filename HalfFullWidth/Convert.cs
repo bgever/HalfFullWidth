@@ -10,6 +10,10 @@ namespace HalfFullWidth
     /// Normalization forms: http://www.unicode.org/reports/tr15/
     /// Variation sequences for punctuation alignment: https://en.wikipedia.org/wiki/Halfwidth_and_Fullwidth_Forms_(Unicode_block)
     /// Punctuation: https://en.wikipedia.org/wiki/CJK_Symbols_and_Punctuation
+    /// 
+    /// Inspiration:
+    /// - https://stackoverflow.com/questions/57142760/check-if-a-string-is-half-width-or-full-width-in-c-sharp
+    /// - https://github.com/sampathsris/ascii-fullwidth-halfwidth-convert
     /// </summary>
     public static class Convert
     {
@@ -62,11 +66,12 @@ namespace HalfFullWidth
         static Lazy<Dictionary<char, char>> Mapping = new Lazy<Dictionary<char, char>>(
             () => new Dictionary<char, char>() {
                 {' ', '　'}, // Ideographic space
-                {'!', '！'}, // '！︀', '！︁'
-                {'"', '"'}, //TODO
-                {'#', '#'}, //TODO
-                // Halfwidth Katakana variants
-                // See Katakana 30A0-30FF
+                // Halfwidth CJK punctuation — See CJK punctuation 3000-303F
+                {'｡', '。'},
+                {'｢', '「'},
+                {'｣', '」'},
+                {'､', '、'},
+                // Halfwidth Katakana variants — See Katakana 30A0-30FF
                 {'･', '・'},
                 {'ｦ', 'ヲ'},
                 {'ｧ', 'ァ'},
@@ -127,6 +132,9 @@ namespace HalfFullWidth
                 {'ﾞ', '\u3099'}, // (゛) KATAKANA VOICED SOUND MARK
                 {'ﾟ', '\u309A'}, // (゜) KATAKANA SEMI-VOICED SOUND MARK
             }
+            // Fullwidth ASCII variants — See ASCII 0020-007E
+            .Concat(new CharRange('\u0021', '\u007E').Map(new CharRange('\uFF01', '\uFF5E')))
+            .ToDictionary(x => x.Key, x => x.Value)
         );
     }
 }
