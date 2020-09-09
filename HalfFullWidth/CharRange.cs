@@ -36,7 +36,7 @@ namespace HalfFullWidth
         public IEnumerable<KeyValuePair<char, char>> Map(CharRange full)
         {
             if (this.Length != full.Length) throw new ArgumentOutOfRangeException();
-            return this.Zip(full, (h, f) => KeyValuePair.Create(h, f));
+            return this.Zip(full, (h, f) => new KeyValuePair<char, char>(h, f));
         }
 
         public IEnumerator<char> GetEnumerator()
