@@ -13,18 +13,20 @@ namespace HalfFullWidth.Tests
         [DataRow("ﾊﾜｰｸﾘｰﾝ!", "ハワークリーン！")] // Hower clean! [hawā kurīn!]
         [DataRow("ﾊﾛｰﾜｰﾙﾄﾞ", "ハローワールド")] // Hello world!
         [DataRow("ｴﾘｯｸ", "エリック")] // Eric
-        [DataRow("｡｢｣､", "。「」、")] // Halfwidth CJK punctuation
+        [DataRow(KATAKANA_ALPHABET_HALF, KATAKANA_ALPHABET_FULL)]
+        // --- Next DataRows are based on https://www.unicode.org/charts/PDF/UFF00.pdf ---
         [DataRow(" ", "　")] // Ideographic space.
         [DataRow("\u0020", "\u3000")] // Ideographic space.
-        [DataRow(
-            "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ",
-            "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A"
-        )] // Halfwidth Katakana variants
         [DataRow(
             "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
             "！＂＃＄％＆＇（）＊＋，－．／０１２３４５６７８９：；＜＝＞？＠ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ［＼］＾＿｀ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｛｜｝～"
         )] // Fullwidth ASCII variants
-        [DataRow(KATAKANA_ALPHABET_HALF, KATAKANA_ALPHABET_FULL)]
+        [DataRow("⦅⦆", "｟｠")] // Fullwidth brackets
+        [DataRow("｡｢｣､", "。「」、")] // Halfwidth CJK punctuation
+        [DataRow(
+            "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ",
+            "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A"
+        )] // Halfwidth Katakana variants
         public void ToFullWidthString(string input, string expected)
         {
             string output = input.ToFullWidthString();
@@ -41,19 +43,20 @@ namespace HalfFullWidth.Tests
         // [DataRow("ハワークリーン！︁", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!] with centered form
         [DataRow("ハローワールド", "ﾊﾛｰﾜｰﾙﾄﾞ")] // Hello world!
         [DataRow("エリック", "ｴﾘｯｸ")] // Eric
+        [DataRow(KATAKANA_ALPHABET_FULL, KATAKANA_ALPHABET_HALF)]
         // --- Next DataRows are based on https://www.unicode.org/charts/PDF/UFF00.pdf ---
-        [DataRow("。「」、", "｡｢｣､")] // Halfwidth CJK punctuation
         [DataRow("　", " ")] // Ideographic space.
         [DataRow("\u3000", "\u0020")] // Ideographic space.
-        [DataRow(
-            "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A",
-            "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ"
-        )] // Halfwidth Katakana variants
         [DataRow(
             "！＂＃＄％＆＇（）＊＋，－．／０１２３４５６７８９：；＜＝＞？＠ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ［＼］＾＿｀ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｛｜｝～",
             "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
         )] // Fullwidth ASCII variants
-        [DataRow(KATAKANA_ALPHABET_FULL, KATAKANA_ALPHABET_HALF)]
+        [DataRow("｟｠", "⦅⦆")] // Fullwidth brackets
+        [DataRow("。「」、", "｡｢｣､")] // Halfwidth CJK punctuation
+        [DataRow(
+            "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A",
+            "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ"
+        )] // Halfwidth Katakana variants
         public void ToHalfWidthString(string input, string expected)
         {
             string output = Convert.ToHalfWidthString(input);

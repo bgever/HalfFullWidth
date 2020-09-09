@@ -65,7 +65,11 @@ namespace HalfFullWidth
         /// <returns>Lazy loaded mapping table.</returns>
         static Lazy<Dictionary<char, char>> Mapping = new Lazy<Dictionary<char, char>>(
             () => new Dictionary<char, char>() {
-                {' ', '　'}, // Ideographic space
+                // Ideographic space
+                {' ', '　'}, // ASCII 0020
+                // Fullwidth brackets
+                {'⦅', '｟'},
+                {'⦆', '｠'},
                 // Halfwidth CJK punctuation — See CJK punctuation 3000-303F
                 {'｡', '。'},
                 {'｢', '「'},
