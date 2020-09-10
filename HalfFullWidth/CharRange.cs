@@ -8,7 +8,7 @@ namespace HalfFullWidth
     /// <summary>
     /// Defines a range of chars from the code-point of the start char until the code point of the end char.
     /// </summary>
-    public class CharRange : IEnumerable<char>, IEnumerable
+    internal class CharRange : IEnumerable<char>, IEnumerable
     {
         public char Start { get; }
         public char End { get; }
