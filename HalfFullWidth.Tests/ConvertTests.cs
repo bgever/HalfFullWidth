@@ -35,7 +35,7 @@ namespace HalfFullWidth.Tests
         [DataRow("￨￩￪￫￬￭￮", "│←↑→↓■○")] // Halfwidth symbol variants
         public void ToFullWidthString(string input, string expected)
         {
-            string output = input.ToFullWidthString();
+            string output = input.ToFullwidthString();
             Assert.AreEqual(expected, output);
         }
 
@@ -45,8 +45,8 @@ namespace HalfFullWidth.Tests
         [DataRow("ミスタースパーコル", "ﾐｽﾀｰｽﾊﾟｰｺﾙ")] // Misutā Supākoru
         [DataRow("パワークリーン！", "ﾊﾟﾜｰｸﾘｰﾝ!")] // Power clean! [pawā kurīn!]
         [DataRow("ハワークリーン！", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!]
-        // [DataRow("ハワークリーン！︀", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!] with corner-justified form
-        // [DataRow("ハワークリーン！︁", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!] with centered form
+        [DataRow("ハワークリーン！︀", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!] with corner-justified form
+        [DataRow("ハワークリーン！︁", "ﾊﾜｰｸﾘｰﾝ!")] // Hower clean! [hawā kurīn!] with centered form
         [DataRow("ハローワールド", "ﾊﾛｰﾜｰﾙﾄﾞ")] // Hello world!
         [DataRow("エリック", "ｴﾘｯｸ")] // Eric
         [DataRow(KATAKANA_ALPHABET_FULL, KATAKANA_ALPHABET_HALF)]
@@ -69,9 +69,10 @@ namespace HalfFullWidth.Tests
         )] // Halfwidth Hangul variants
         [DataRow("￠￡￢￣￤￥￦", "¢£¬¯¦¥₩")] // Fullwidth symbol variants
         [DataRow("│←↑→↓■○", "￨￩￪￫￬￭￮")] // Halfwidth symbol variants
+        [DataRow("！！︀！︁，，︀，︁．．︀．︁：：︀：︁；；︀；︁？？︀？︁００︀", "!!!,,,...:::;;;???00")] // Variation sequences (only fullwidth)
         public void ToHalfWidthString(string input, string expected)
         {
-            string output = Convert.ToHalfWidthString(input);
+            string output = Convert.ToHalfwidthString(input);
             Assert.AreEqual(expected, output);
         }
 
@@ -82,14 +83,14 @@ namespace HalfFullWidth.Tests
         [TestMethod]
         public void ToFullWidthString_Mixed()
         {
-            string output = MIXED.ToFullWidthString();
+            string output = MIXED.ToFullwidthString();
             Assert.AreEqual(MIXED_TO_FULL, output);
         }
 
         [TestMethod]
         public void ToHalfWidthString_Mixed()
         {
-            string output = MIXED.ToHalfWidthString();
+            string output = MIXED.ToHalfwidthString();
             Assert.AreEqual(MIXED_TO_HALF, output);
         }
 
