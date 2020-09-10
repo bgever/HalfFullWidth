@@ -135,9 +135,34 @@ namespace HalfFullWidth
                 {'ﾝ', 'ン'},
                 {'ﾞ', '\u3099'}, // (゛) KATAKANA VOICED SOUND MARK
                 {'ﾟ', '\u309A'}, // (゜) KATAKANA SEMI-VOICED SOUND MARK
+                // Halfwidth Hangul variants — See Hangul Compatibility Jamo 3130-318F
+                {'\uFFA0', '\u3164'}, // HALFWIDTH HANGUL FILLER
+                // Fullwidth symbol variants — See Latin-1 00A0-00FF
+                {'¢', '￠'},
+                {'£', '￡'},
+                {'¬', '￢'},
+                {'¯', '￣'},
+                {'¦', '￤'},
+                {'¥', '￥'},
+                {'₩', '￦'},
+                // Halfwidth symbol variants
+                {'￨', '│'},
+                {'￩', '←'},
+                {'￪', '↑'},
+                {'￫', '→'},
+                {'￬', '↓'},
+                {'￭', '■'},
+                {'￮', '○'},
             }
             // Fullwidth ASCII variants — See ASCII 0020-007E
             .Concat(new CharRange('\u0021', '\u007E').Map(new CharRange('\uFF01', '\uFF5E')))
+            // Halfwidth Hangul variants — See Hangul Compatibility Jamo 3130-318F
+            .Concat(new CharRange('\uFFA1', '\uFFBE').Map(new CharRange('\u3131', '\u314E')))
+            .Concat(new CharRange('\uFFC2', '\uFFC7').Map(new CharRange('\u314F', '\u3154')))
+            .Concat(new CharRange('\uFFCA', '\uFFCF').Map(new CharRange('\u3155', '\u315A')))
+            .Concat(new CharRange('\uFFD2', '\uFFD7').Map(new CharRange('\u315B', '\u3160')))
+            .Concat(new CharRange('\uFFDA', '\uFFDC').Map(new CharRange('\u3161', '\u3163')))
+
             .ToDictionary(x => x.Key, x => x.Value)
         );
     }

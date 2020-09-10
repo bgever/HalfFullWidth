@@ -27,6 +27,12 @@ namespace HalfFullWidth.Tests
             "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ",
             "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A"
         )] // Halfwidth Katakana variants
+        [DataRow(
+            "\uFFA0ﾡﾢﾣﾤﾥﾦﾧﾨﾩﾪﾫﾬﾭﾮﾯﾰﾱﾲﾳﾴﾵﾶﾷﾸﾹﾺﾻﾼﾽﾾￂￃￄￅￆￇￊￋￌￍￎￏￒￓￔￕￖￗￚￛￜ",
+            "\u3164ㄱㄲㄳㄴㄵㄶㄷㄸㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅃㅄㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ"
+        )] // Halfwidth Hangul variants
+        [DataRow("¢£¬¯¦¥₩", "￠￡￢￣￤￥￦")] // Fullwidth symbol variants
+        [DataRow("￨￩￪￫￬￭￮", "│←↑→↓■○")] // Halfwidth symbol variants
         public void ToFullWidthString(string input, string expected)
         {
             string output = input.ToFullWidthString();
@@ -57,6 +63,12 @@ namespace HalfFullWidth.Tests
             "・ヲァィゥェォャュョッーアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン\u3099\u309A",
             "･ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝﾞﾟ"
         )] // Halfwidth Katakana variants
+        [DataRow(
+            "\u3164ㄱㄲㄳㄴㄵㄶㄷㄸㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅃㅄㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ",
+            "\uFFA0ﾡﾢﾣﾤﾥﾦﾧﾨﾩﾪﾫﾬﾭﾮﾯﾰﾱﾲﾳﾴﾵﾶﾷﾸﾹﾺﾻﾼﾽﾾￂￃￄￅￆￇￊￋￌￍￎￏￒￓￔￕￖￗￚￛￜ"
+        )] // Halfwidth Hangul variants
+        [DataRow("￠￡￢￣￤￥￦", "¢£¬¯¦¥₩")] // Fullwidth symbol variants
+        [DataRow("│←↑→↓■○", "￨￩￪￫￬￭￮")] // Halfwidth symbol variants
         public void ToHalfWidthString(string input, string expected)
         {
             string output = Convert.ToHalfWidthString(input);
