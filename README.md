@@ -70,7 +70,7 @@ B  ﾊﾞ ba   ﾋﾞ bi   ﾌﾞ bu   ﾍﾞ be   ﾎﾞ bo   ﾋﾞｬ bya  �
 P  ﾊﾟ pa   ﾋﾟ pi   ﾌﾟ pu   ﾍﾟ pe   ﾎﾟ po   ﾋﾟｬ pya  ﾋﾟｭ pyu  pyo
 F  ﾌｧ fa  ﾌｨ fi         ﾌｪ fe  ﾌｫ fo
 T  ﾂｧ tsa ﾃｨ ti  ﾄｩ tu
-W                       ｳｪ we  ｳｫ wo";
+W                       ｳｪ we  ｳｫ wo
 ```
 
 Fullwidth:
