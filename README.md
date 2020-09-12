@@ -6,6 +6,8 @@ _A .NET Standard library to convert between halfwidth and fullwidth Unicode form
 
 Install the `HalfFullWidth` package from NuGet.
 
+https://www.nuget.org/packages/HalfFullWidth/
+
 ## Usage
 
 Import the `HalfFullWidth` namespace to get access to the extension methods on String and Char:
